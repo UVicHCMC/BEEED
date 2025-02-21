@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="BDC866_1980_BEV1-1-1">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+           <title></title>
+           
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="play">
+            <head>Play information</head>
+            <bibl type="play">
+               <title type="uniform" source="britDrama">Title (uniform)*</title>
+               <author source="britDrama">Author/s (uniform)*</author>
+               <term type="genre" source="annals">Genre (Annals)</term>
+               <term type="genre" source="britDrama">Genre (British Drama)</term>
+               <idno type="britDrama">British Drama number</idno>
+               <idno type="grantley">English Dramatic Interludes number</idno>
+            </bibl>
+         </div>
+
+         <div>
+            <head>Editorial information</head>
+            <bibl type="editorial">
+               <idno type="beeed">BEEED number</idno><!-- Should be built into title of file; write Schematron to enforce -->
+               <relatedItem target="beeed:XYZ" type="container"/><!-- Process into "Contained in BEEED # plus link --><!-- One only needs to model a relationship in one direction. --><!-- Diagnostics to ensure that all the children are listed in the parent and vice versa. Also Diagnostic to see if their are children that have more than one parent. But ask Brett if there are any cases where an edition would be included in two collections AND be identical -->
+               <title type="editionPlay">Play title (used by the edition)</title>
+               <author source="edition">Author(s) of play (attributed by the edition)</author>
+               <author corresp="pros:fletcher">
+                  <surname>Fletcher</surname>
+                  <forename>John</forename>
+               </author>
+               <author corresp="pros:anon">Anonymous</author><!-- Content model of author: 1 or more -->
+               <!-- •	Responsibilities:-->
+               <editor role="text">Text editor(s)</editor><!-- JENS1 to GREA1: Establish a taxonomy of editorial roles. -->
+               <editor role="all">If second text editor</editor><!-- Content model of editor: 1 or more -->
+               <editor role="commentary">Commentary</editor>
+               <editor role="introduction">Introduction(s)</editor>
+               <term type="edType" ref="constructed"/><!-- Controlled vocabulary: Edition Text (Constructed / Inherited / Reproduction / Unclear) -->
+               <bibl type="sourceText" corresp="beeed:abcde1"/><!--Source (if inherited) --><!-- Make Schematron rule: If value of @ref="inherited", require a source that points to another BEEED idno -->
+               <term type="modernized" ana="N"/>
+               <!-- Controlled vocabulary -->
+               <term type="facsim" ana="Y"/>
+               <!--• Facsimile? (Y/N) --> • Transcription? (Y/N) <!-- Use same pattern for the rest -->
+               <!-- The following elements should be rendered in the html under the heading Apparatus:-->
+               o Textual notes? (Y/N) o Collation? (Y/N) o Commentary? (Y/N) o Glosses/glossary?
+               (Y/N)</bibl>
+         </div>
+         <!-- JJ to ask MH about best way to capture y/n values on terms -->
+
+
+      </body>
+   </text>
+</TEI>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="COL_1980_BEV1">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+           <title></title>
+           
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+        
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+      <!--<profileDesc>
+         <particDesc>
+            <r
+         </particDesc>
+      </profileDesc>-->
+   </teiHeader>
+   <text>
+      <body>
+
+         <div type="editorial">
+            <head>Editorial information</head>
+    <bibl><idno type="beeed">BEEED number</idno></bibl><!-- Write Schematron to ensure this matches the xml:id -->
+            
+              <bibl>
+                 <relatedItem target="beeed:BDC866_1980_BEV1-1-1"/>
+              <relatedItem target="beeed:xyz"/>
+                 <relatedItem target="beeed:xyz"/>
+              </bibl>
+              
+         </div>
+
+         <div>
+            <head>Publication information</head>
+            <bibl>
+               <title type="volume">Volume title</title>
+               <editor role="volume">Volume editor(s)</editor>
+               <publisher>Publisher</publisher>
+               <publisher/><!-- Content model: 1+ publisher elements -->
+               <pubPlace>Place published</pubPlace><!-- Content model: 1+ pubPlace -->
+               <pubPlace/>
+               <date when="1999">Year</date><!-- Copyright date if under copyright --><!-- Just require year. -->
+               <title type="series">Series title</title><!-- Schematron: If we have title @type="series", require 0 or more <editor> elements with @role="series" -->
+               <editor role="series">Series editor(s)</editor><!-- Content model: 1+ editor elements --><!-- Schematron: Do not allow if there is no series title. -->
+               <edition ana="1e">Edition</edition><!-- first, second, second revised, etc --><!-- For value of @ana, external controlled vocabulary or one that BGH will create. -->
+               <title type="journal">Journal title</title><!-- Content model: 0 or 1 -->
+               <biblScope unit="volume">Journal volume</biblScope><!-- Schematron: If you have title|@type="journal", then require-->
+               <biblScope unit="issue">Journal issue</biblScope><!-- 0 or 1 -->
+               <biblScope unit="page">Journal page range</biblScope>
+               <idno type="URI">URI</idno>
+               <note>Free field for notes</note>
+            </bibl>
+         </div>
+
+         <div>
+            <head>Additional information</head>
+            <cit><bibl>Citation (MLA 9)</bibl></cit><!-- JJ will ask MH about using cit here. It's a bit off-label but would be unique in this project and therefore easily processable. -->
+            <listBibl>
+               <bibl/>
+               <bibl/>
+               <!--List of reviews-->
+            </listBibl>
+            <note>Notes</note>
+         </div>
+      </body>
+   </text>
+</TEI>
