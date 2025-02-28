@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="BEEEDBuildTEI" xmlns:if="ant:if"
+    xmlns:unless="ant:unless">
+    <description>
+        #####################################################################
+        #                                                                   #
+          Project build file 2025 by                                     
+                 Martin Holmes (mholmes@uvic.ca)
+                 Navarra Houldin                                            
+        
+          This build file will accomplish these basic tasks:
+        
+            1. Transform the source Endnote XML into a collection of 
+               TEI XML files.
+            2. Validate the generated files against the project schemas
+               (RNG and Schematron).
+               
+          To run, type:
+         
+          ant -f buildTEI.xml
+        
+          at the command line. The results will appear in the /tei/ folder.
+        #                                                                   #
+        #####################################################################
+    </description>
+    
+    <property name="echo.separator" value="************************************************"/>
+    
+    <!-- Location of Saxon jar. -->
+    <property name="saxon" value="${basedir}/lib/saxon-he-12.jar"/>
+    
+    <!-- Jing task for validation of XML. -->
+    <taskdef name="jing" classname="com.thaiopensource.relaxng.util.JingTask" 
+        classpath="${basedir}/lib/jing.jar"/>
+    
+    
+    <!-- We'll need access to the date. -->
+    <tstamp>
+        <format property="today" pattern="yyyy-MM-dd" locale="en,CA"/>
+    </tstamp>
+    
+    <target name="preClean">
+        <description>
+            TARGET preClean
+            This cleans up any detritus from previous builds.
+        </description>
+        <echo message="${echo.separator}"/>
+        <echo message="Cleaning up everything in the TEI folder and temporary folder..."/>
+        <delete dir="${basedir}/tempXml"/>
+        <delete includeemptydirs="true">
+            <fileset dir="${basedir}/tei">
+                <include name="*"/>
+                <include name="**/*"/>
+            </fileset>
+        </delete>
+    </target>
+    
+    <target name="generateTEI">
+        <description>
+            TARGET generateTEI
+            This processes the Endnote XML to generate a collection of
+            TEI files in the tei folder.
+        </description>
+        <echo message="${echo.separator}"/>
+        <echo message="Generating TEI files..."/>
+        <!-- ACTION GOES HERE. -->
+    </target>
+    
+    <target name="validateTEI">
+        <description>
+            TARGET validateTEI
+            This validates the generated TEI with RNG and Schematron.
+        </description>
+        <echo message="${echo.separator}"/>
+        <echo message="Validating TEI files..."/>
+        <!-- ACTION GOES HERE. -->
+    </target>
+    
+    <target name="all">
+        <description>
+            TARGET all
+            This runs the complete conversion process from Endnote to 
+            TEI, and validates the results.
+        </description>
+        <antcall target="preClean"/>
+        <antcall target="generateTEI"/>
+        <antcall target="validateTEI"/>
+    </target>
+  
+</project>
