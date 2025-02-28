@@ -63,6 +63,7 @@
         </description>
         <echo message="${echo.separator}"/>
         <echo message="Generating TEI files..."/>
+        <!-- ACTION GOES HERE. -->
     </target>
     
     <target name="validateTEI">
@@ -72,6 +73,7 @@
         </description>
         <echo message="${echo.separator}"/>
         <echo message="Validating TEI files..."/>
+        <!-- ACTION GOES HERE. -->
     </target>
     
     <target name="all">
