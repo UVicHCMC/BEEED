@@ -4,23 +4,24 @@
   <teiHeader>
     <fileDesc>
       <titleStmt>
-        <title>Title</title>
+        <title>TEI Customization for the Bibliography of Editions of Early English Drama</title>
       </titleStmt>
       <publicationStmt>
         <p>Publication Information</p>
       </publicationStmt>
       <sourceDesc>
-        <p>Information about the source</p>
+        <p>TEI Customization created by Martin Holmes and Navarra Houldin</p>
       </sourceDesc>
     </fileDesc>
   </teiHeader>
   <text>
     <body>
       <schemaSpec ident="BEEED" start="TEI">
-        <moduleRef key="header"/><!-- Talk to Janelle before including things -->
-        <moduleRef key="core"/>
+        <moduleRef key="header" include="edition fileDesc funder idno publicationStmt sourceDesc teiHeader title titleStmt"/><!-- Check with Janelle about these -->
+        <moduleRef key="core" include="author bibl biblScope cit editor head listBibl note p publisher pubPlace relatedItem term"/>
+        <moduleRef key="namesdates" include="forename persName surname"/>
         <moduleRef key="tei"/>
-        <moduleRef key="textstructure"/>
+        <moduleRef key="textstructure" include="body date div TEI text"/>
       </schemaSpec>
     </body>
   </text>
